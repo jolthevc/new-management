@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "research_pack.schema.json",
+  "title": "New Management Research Pack",
+  "type": "object",
+  "additionalProperties": false,
+  "required":["questions","valuation_grounding","what_cannot_be_known"],
+  "properties":{
+    "questions":{
+      "type":"array",
+      "items":{
+        "type":"object",
+        "additionalProperties":false,
+        "required":["question_id","question","answer_summary","findings","unresolved"],
+        "properties":{
+          "question_id":{"type":"string"},
+          "question":{"type":"string"},
+          "answer_summary":{"type":"string"},
+          "findings":{
+            "type":"array",
+            "items":{
+              "type":"object",
+              "additionalProperties":false,
+              "required":[
+                "finding_id","finding","source_url","source_name","source_date",
+                "evidence_strength","evidence_class","relevance"
+              ],
+              "properties":{
+                "finding_id":{"type":"string"},
+                "finding":{"type":"string"},
+                "source_url":{"type":"string","format":"uri"},
+                "source_name":{"type":"string"},
+                "source_date":{"type":["string","null"]},
+                "evidence_strength":{"type":"string","enum":["high","medium","low"]},
+                "evidence_class":{"type":"string","enum":["Observed","Category Assumption"]},
+                "relevance":{"type":"string"}
+              }
+            }
+          },
+          "unresolved":{"type":"array","items":{"type":"string"}}
+        }
+      }
+    },
+    "valuation_grounding":{
+      "type":"object",
+      "additionalProperties":false,
+      "required":["summary","sources"],
+      "properties":{
+        "summary":{"type":"string"},
+        "sources":{
+          "type":"array",
+          "items":{
+            "type":"object",
+            "additionalProperties":false,
+            "required":["source_url","source_name","finding"],
+            "properties":{
+              "source_url":{"type":"string","format":"uri"},
+              "source_name":{"type":"string"},
+              "finding":{"type":"string"}
+            }
+          }
+        }
+      }
+    },
+    "what_cannot_be_known":{"type":"array","items":{"type":"string"}}
+  }
+}
