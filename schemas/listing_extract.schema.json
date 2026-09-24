@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "listing_extract.schema.json",
+  "title": "New Management Listing Extract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "title","marketplace","listing_id","listing_url","location","asking_price",
+    "revenue","sde","ebitda","earnings_basis","employees","year_established",
+    "owner_role","owner_hours","assets","rent","real_estate","reason_for_sale",
+    "seller_financing","sba_prequalified","transition"
+  ],
+  "properties": {
+    "title": {"type":["string","null"]},
+    "marketplace": {"type":["string","null"]},
+    "listing_id": {"type":["string","null"]},
+    "listing_url": {"type":["string","null"], "format":"uri"},
+    "location": {"type":["string","null"]},
+    "asking_price": {"type":["number","null"]},
+    "revenue": {"type":["number","null"]},
+    "sde": {"type":["number","null"]},
+    "ebitda": {"type":["number","null"]},
+    "earnings_basis": {
+      "type":["string","null"],
+      "enum":["SDE","EBITDA","Cash Flow","Seller Discretionary Cash Flow","Other",null]
+    },
+    "employees": {"type":["integer","null"], "minimum":0},
+    "year_established": {"type":["integer","null"], "minimum":1800, "maximum":2100},
+    "owner_role": {"type":["string","null"]},
+    "owner_hours": {"type":["number","null"], "minimum":0, "maximum":168},
+    "assets": {"type":["string","null"]},
+    "rent": {"type":["string","null"]},
+    "real_estate": {"type":["string","null"]},
+    "reason_for_sale": {"type":["string","null"]},
+    "seller_financing": {"type":["string","null"]},
+    "sba_prequalified": {"type":["string","null"]},
+    "transition": {"type":["string","null"]}
+  }
+}
