@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "memo_verification.schema.json",
+  "title": "New Management Memo Verification",
+  "type": "object",
+  "additionalProperties": false,
+  "required":[
+    "pass","claim_issues","math_checks","certainty_check","positive_depth_check",
+    "differentiated_lever_check","contradictions","corrections_made"
+  ],
+  "properties":{
+    "pass":{"type":"boolean"},
+    "claim_issues":{
+      "type":"array",
+      "items":{
+        "type":"object",
+        "additionalProperties":false,
+        "required":["memo_section","claim","issue_type","severity","correction"],
+        "properties":{
+          "memo_section":{"type":"string"},
+          "claim":{"type":"string"},
+          "issue_type":{
+            "type":"string",
+            "enum":[
+              "unsupported","inference_as_fact","category_assumption_as_fact",
+              "must_verify_as_finding","certainty_strengthened","source_mismatch"
+            ]
+          },
+          "severity":{"type":"string","enum":["error","warning"]},
+          "correction":{"type":"string"}
+        }
+      }
+    },
+    "math_checks":{
+      "type":"array",
+      "items":{
+        "type":"object",
+        "additionalProperties":false,
+        "required":["item","status","detail"],
+        "properties":{
+          "item":{"type":"string"},
+          "status":{"type":"string","enum":["pass","fail","not_applicable"]},
+          "detail":{"type":"string"}
+        }
+      }
+    },
+    "certainty_check":{"type":"string"},
+    "positive_depth_check":{"type":"string"},
+    "differentiated_lever_check":{
+      "type":"object",
+      "additionalProperties":false,
+      "required":["present","passes_bank_test","detail"],
+      "properties":{
+        "present":{"type":"boolean"},
+        "passes_bank_test":{"type":["boolean","null"]},
+        "detail":{"type":"string"}
+      }
+    },
+    "contradictions":{"type":"array","items":{"type":"string"}},
+    "corrections_made":{"type":"array","items":{"type":"string"}}
+  }
+}
