@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "article_claim_check.schema.json",
+  "title": "New Management Article Claim Check",
+  "type": "object",
+  "additionalProperties": false,
+  "required":["pass","claims","issues","targeted_rewrite_required"],
+  "properties":{
+    "pass":{"type":"boolean"},
+    "claims":{
+      "type":"array",
+      "items":{
+        "type":"object",
+        "additionalProperties":false,
+        "required":["claim_id","claim_text","support_type","support_reference","certainty_match","status"],
+        "properties":{
+          "claim_id":{"type":"string"},
+          "claim_text":{"type":"string"},
+          "support_type":{
+            "type":"string",
+            "enum":["listing","memo_source","memo_inference","category_assumption","research_only","unsupported"]
+          },
+          "support_reference":{"type":["string","null"]},
+          "certainty_match":{"type":"boolean"},
+          "status":{"type":"string","enum":["pass","new_substance","unsupported","altered_number","stronger_certainty","seller_motive","reproduced_listing_text"]}
+        }
+      }
+    },
+    "issues":{"type":"array","items":{"type":"string"}},
+    "targeted_rewrite_required":{"type":"boolean"}
+  }
+}
