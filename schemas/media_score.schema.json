@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "media_score.schema.json",
+  "title": "New Management Media Quality Score",
+  "type": "object",
+  "additionalProperties": false,
+  "required":[
+    "investment_rigor","thesis_and_insight","business_understanding",
+    "narrative_structure_and_flow","prose_and_enjoyability",
+    "distinctiveness_and_memorability","total","analytical_floors_pass",
+    "publish_quality_pass","strongest_part","weakest_part","highest_leverage_changes"
+  ],
+  "properties":{
+    "investment_rigor":{"type":"integer","minimum":0,"maximum":20},
+    "thesis_and_insight":{"type":"integer","minimum":0,"maximum":20},
+    "business_understanding":{"type":"integer","minimum":0,"maximum":20},
+    "narrative_structure_and_flow":{"type":"integer","minimum":0,"maximum":15},
+    "prose_and_enjoyability":{"type":"integer","minimum":0,"maximum":15},
+    "distinctiveness_and_memorability":{"type":"integer","minimum":0,"maximum":10},
+    "total":{"type":"integer","minimum":0,"maximum":100},
+    "analytical_floors_pass":{"type":"boolean"},
+    "publish_quality_pass":{"type":"boolean"},
+    "strongest_part":{"type":"string"},
+    "weakest_part":{"type":"string"},
+    "highest_leverage_changes":{
+      "type":"array",
+      "items":{"type":"string"},
+      "minItems":3,
+      "maxItems":3
+    }
+  }
+}
