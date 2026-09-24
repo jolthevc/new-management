@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "research_plan.schema.json",
+  "title": "New Management Research Plan",
+  "type": "object",
+  "additionalProperties": false,
+  "required":["questions"],
+  "properties":{
+    "questions":{
+      "type":"array",
+      "minItems":4,
+      "maxItems":7,
+      "items":{
+        "type":"object",
+        "additionalProperties":false,
+        "required":["question_id","question","why_it_matters","evidence_sought","preferred_source_types","decision_area"],
+        "properties":{
+          "question_id":{"type":"string","pattern":"^RQ[0-9]+$"},
+          "question":{"type":"string"},
+          "why_it_matters":{"type":"string"},
+          "evidence_sought":{"type":"string"},
+          "preferred_source_types":{"type":"array","items":{"type":"string"},"minItems":1},
+          "decision_area":{
+            "type":"array",
+            "items":{
+              "type":"string",
+              "enum":["business_quality","normalization","valuation","value_creation","bear_case","swing_question","ownership"]
+            },
+            "minItems":1
+          }
+        }
+      }
+    }
+  }
+}
