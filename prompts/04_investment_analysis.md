@@ -15,12 +15,14 @@ Read and follow:
 - `governance/00_constitution.md`
 - `governance/01_investment_standard.md`
 - `governance/02_evidence_and_uncertainty.md`
+- `governance/03_editorial_standard.md`
 - `governance/04_devices_and_metrics.md`
 - `governance/05_quality_card_anchors.md`
 - `governance/08_value_creation_standard.md`
 
 Use examples as quality references, not templates:
 
+- `examples/prose_gold_standard.md`
 - `examples/swing_question_examples.md`
 - `examples/under_new_management_examples.md`
 
@@ -42,6 +44,32 @@ Do not introduce external facts that are absent from the supplied evidence.
 Strong provisional judgment is expected.
 
 False certainty is not.
+
+## One act of thinking
+
+Stage B does not merely produce structured facts for another model to turn into writing.
+
+It produces the **best reasoning and the best core prose at the same time**.
+
+The `narrative` object in the output schema is canonical analytical prose. Write those fields to the same publication-quality standard defined in `governance/03_editorial_standard.md` and demonstrated in `examples/prose_gold_standard.md`.
+
+These are not terse summaries or notes. They are the strongest reusable passages of the analysis, written once.
+
+The memo writer should be able to carry much of them forward with little or no rewriting.
+
+The narrative fields are:
+
+- `our_view`;
+- `business_explained`;
+- `physics_explained`;
+- `positive_case`;
+- `under_new_management_narrative`;
+- `bear_case_narrative`;
+- `price_reasoning`.
+
+Use the space each idea earns. Some fields may be one strong paragraph. Others may need several. Do not pad for symmetry.
+
+The structured fields remain essential for exhibits, arithmetic, traceability, and verification. The narrative fields preserve the actual thinking in prose.
 
 ## Reasoning sequence
 
@@ -122,6 +150,10 @@ Do not fill missing rows merely to make the P&L look complete.
 
 State evidence coverage and reconstruction confidence.
 
+For evidence coverage, estimate the observed company-specific share of modeled, non-derived P&L dollar magnitude, rounded to the nearest 5 percentage points. Exclude calculated subtotals so dollars are not counted twice. If a sensible denominator cannot be established, return null and explain why rather than manufacturing precision.
+
+Where a P&L row or Quality Card conclusion depends on a Stage A research finding, add the relevant `finding_id` values to `source_refs`. Add valuation-grounding finding IDs to `market_grounding_source_refs`. Do not invent source references.
+
 ### 6. Calculate derived metrics
 
 Apply the edge-case rules exactly.
@@ -174,6 +206,14 @@ Day 1 must include what should be left alone.
 
 Year 3 describes the business we are trying to create.
 
+The earnings bridge has a strict reconciliation contract:
+
+- start with `year_0_cash_earnings`;
+- list each quantified lever as a delta;
+- end with `new_management_cash_earnings`.
+
+The ending value must equal the starting value plus the lever deltas, on the same point/range basis, and must reconcile to the New Management Case cash-earnings row in the Reconstructed P&L.
+
 ### 9. Financing
 
 Use simple illustrative financing.
@@ -189,9 +229,23 @@ Show:
 - coverage;
 - cash to equity.
 
-Run sensitivities at three prices and three earnings cases.
+The financing base case uses the asking price and the Year 0 point estimate. If Year 0 is a range without a defensible point, use its midpoint and state that basis.
 
-Use ranges where appropriate.
+Run the full nine-cell sensitivity grid using these price cases:
+
+- `asking_price`;
+- `year_0_value_low`;
+- `preliminary_maximum`.
+
+And these earnings cases:
+
+- `downside` = approximately 20% below base Year 0 earnings;
+- `base`;
+- `upside` = approximately 20% above base Year 0 earnings.
+
+If two price cases are numerically identical, retain the distinct case labels rather than inventing a different price.
+
+Use ranges where appropriate outside the deterministic base and sensitivity inputs.
 
 ### 10. Build the Bear Case
 
@@ -267,6 +321,8 @@ Return only valid JSON conforming to:
 `schemas/investment_analysis.schema.json`
 
 n8n will deterministically render the JSON into `analysis.md` and the structured exhibits.
+
+The memo writer will also reuse the canonical prose in `narrative`; treat those fields as part of the final intellectual product, not metadata.
 
 ## Final self-check before output
 
