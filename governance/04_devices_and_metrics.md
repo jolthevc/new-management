@@ -172,6 +172,14 @@ The exhibit should show:
 - evidence coverage;
 - reconstruction confidence.
 
+### Evidence coverage
+
+Evidence coverage is an approximate percentage of the modeled, non-derived P&L dollar magnitude supported by observed company-specific data rather than inference or category assumptions.
+
+Exclude calculated subtotals so the same dollars are not counted twice. Round to the nearest 5 percentage points. If the available rows do not permit a sensible denominator, report the percentage as null and explain why in the note rather than manufacturing precision.
+
+The percentage is a reading aid, not a statistical confidence interval. It should always appear with a short note identifying which major rows are observed and which remain assumed or unknown.
+
 Suggested confidence interpretation:
 
 **High**  
