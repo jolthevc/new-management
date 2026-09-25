@@ -132,6 +132,8 @@ Avoid the opposite affectation of constant one-sentence paragraphs.
 
 Use the exhibits to carry numbers instead of repeating them in prose.
 
+When the Reconstructed P&L appears in the article, preserve its evidence-coverage percentage/note and reconstruction-confidence line. Public readability is not a reason to hide how much of the reconstruction is observed versus assumed.
+
 A smart reader on a phone should be able to move through the piece without feeling trapped in a block of analysis.
 
 ## AI-image opportunities
