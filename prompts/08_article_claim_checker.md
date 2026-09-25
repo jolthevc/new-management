@@ -54,6 +54,8 @@ Extract every material:
 
 For each claim, determine its support.
 
+When a memo-source entry contains a `finding_id`, use that ID to trace the claim mechanically back to the corresponding research-pack finding. A null `finding_id` is valid for listing facts and other claims whose provenance is not a Stage A research finding.
+
 Valid support can be:
 
 - listing/source snapshot;
