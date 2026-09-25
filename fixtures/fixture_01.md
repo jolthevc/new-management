@@ -64,6 +64,27 @@ Stress revenue durability, habit-held recurrence, route density, labor utilizati
 - Did it create a new failure elsewhere?
 - Is another rerun required?
 
+## Execution metrics
+
+Record actual usage for each stage during the fixture run.
+
+| Stage | Model / tier | Input tokens | Output tokens | Estimated cost | Runtime |
+|---|---|---:|---:|---:|---:|
+| Extraction | | | | | |
+| Screen Card | | | | | |
+| Research plan | | | | | |
+| Web research / synthesis | | | | | |
+| Investment analysis | | | | | |
+| Memo writer | | | | | |
+| Memo verifier | | | | | |
+| Media writer | | | | | |
+| Claim checker | | | | | |
+| Media scorer | | | | | |
+| Rewrite, if used | | | | | |
+| **Total** | | | | | |
+
+Cost is not a quality target during calibration. It is recorded so we learn where the intelligence budget actually goes.
+
 ## Unresolved issues
 
 -
