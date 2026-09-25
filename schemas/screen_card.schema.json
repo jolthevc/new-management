@@ -5,31 +5,126 @@
   "type": "object",
   "additionalProperties": false,
   "required": [
-    "business","location","headline_numbers","what_it_is","why_interesting",
-    "immediate_concerns","likely_angles","why_attention","digest_card","source_url"
+    "business",
+    "location",
+    "headline_numbers",
+    "what_it_is",
+    "why_interesting",
+    "immediate_concerns",
+    "notable_terms",
+    "likely_angles",
+    "why_attention",
+    "digest_card",
+    "source_url"
   ],
   "properties": {
-    "business": {"type":"string"},
-    "location": {"type":["string","null"]},
+    "business": {
+      "type": "string"
+    },
+    "location": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
     "headline_numbers": {
-      "type":"object",
+      "type": "object",
       "additionalProperties": false,
-      "required":["asking_price","revenue","sde","ebitda","headline_multiple","multiple_basis"],
-      "properties":{
-        "asking_price":{"type":["number","null"]},
-        "revenue":{"type":["number","null"]},
-        "sde":{"type":["number","null"]},
-        "ebitda":{"type":["number","null"]},
-        "headline_multiple":{"type":["number","null"]},
-        "multiple_basis":{"type":["string","null"],"enum":["SDE","EBITDA",null]}
+      "required": [
+        "asking_price",
+        "revenue",
+        "sde",
+        "ebitda",
+        "headline_multiple",
+        "multiple_basis"
+      ],
+      "properties": {
+        "asking_price": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "revenue": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "sde": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "ebitda": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "headline_multiple": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "multiple_basis": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "SDE",
+            "EBITDA",
+            null
+          ]
+        }
       }
     },
-    "what_it_is":{"type":"string"},
-    "why_interesting":{"type":"array","items":{"type":"string"},"maxItems":4},
-    "immediate_concerns":{"type":"array","items":{"type":"string"},"maxItems":4},
-    "likely_angles":{"type":"array","items":{"type":"string"},"maxItems":3},
-    "why_attention":{"type":"string"},
-    "digest_card":{"type":"string"},
-    "source_url":{"type":["string","null"],"format":"uri"}
+    "what_it_is": {
+      "type": "string"
+    },
+    "why_interesting": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 4
+    },
+    "immediate_concerns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 4
+    },
+    "likely_angles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 3
+    },
+    "why_attention": {
+      "type": "string"
+    },
+    "digest_card": {
+      "type": "string"
+    },
+    "source_url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "uri"
+    },
+    "notable_terms": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 4
+    }
   }
 }
