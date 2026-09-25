@@ -277,10 +277,21 @@ Illustrate:
 - debt-service coverage;
 - cash to equity.
 
-Show sensitivity at:
+The financing base case uses the asking price and the Year 0 cash-earnings point estimate. If Year 0 is a range with no defensible point estimate, use the midpoint and say that explicitly.
 
-- three purchase prices;
-- approximately -20% / base / +20% earnings.
+Show a deterministic sensitivity grid across three price cases:
+
+- **Asking Price** = the current asking price;
+- **Year 0 Value Low** = the low end of our indicative Year 0 value range;
+- **Preliminary Maximum** = our preliminary maximum price.
+
+Use three earnings cases:
+
+- **Downside** = approximately 20% below the base Year 0 earnings case;
+- **Base** = the Year 0 point estimate or range midpoint used in the financing base case;
+- **Upside** = approximately 20% above the base Year 0 earnings case.
+
+If two price cases are numerically identical, keep the labels rather than inventing a different price merely to create dispersion.
 
 Exit analysis is optional. Use it only when it adds information.
 
