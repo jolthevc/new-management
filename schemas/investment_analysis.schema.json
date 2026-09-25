@@ -5,313 +5,920 @@
   "type": "object",
   "additionalProperties": false,
   "required": [
-    "the_bet","business_summary","business_physics","quality_card","really_about",
-    "reconstructed_p_and_l","derived_metrics","valuation","financing",
-    "under_new_management","bear_case","what_has_to_be_true","ownership",
-    "year_0_value_range","preliminary_maximum_price","did_the_bet_survive"
+    "the_bet",
+    "business_summary",
+    "narrative",
+    "business_physics",
+    "quality_card",
+    "really_about",
+    "reconstructed_p_and_l",
+    "derived_metrics",
+    "valuation",
+    "financing",
+    "under_new_management",
+    "bear_case",
+    "what_has_to_be_true",
+    "ownership",
+    "year_0_value_range",
+    "preliminary_maximum_price",
+    "did_the_bet_survive"
   ],
-  "properties":{
-    "the_bet":{
-      "type":"object",
-      "additionalProperties":false,
-      "required":["statement","status"],
-      "properties":{
-        "statement":{"type":"string"},
-        "status":{"type":"string","enum":["strengthened","survived","rewritten","killed"]}
+  "properties": {
+    "the_bet": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "statement",
+        "status"
+      ],
+      "properties": {
+        "statement": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "strengthened",
+            "survived",
+            "rewritten",
+            "killed"
+          ]
+        }
       }
     },
-    "business_summary":{"type":"string"},
-    "business_physics":{
-      "type":"object",
-      "additionalProperties":false,
-      "required":["equation","what_binds","what_is_scarce","explanation"],
-      "properties":{
-        "equation":{"type":"string"},
-        "what_binds":{"type":"string"},
-        "what_is_scarce":{"type":"string"},
-        "explanation":{"type":"string"}
+    "business_summary": {
+      "type": "string"
+    },
+    "business_physics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "equation",
+        "what_binds",
+        "what_is_scarce",
+        "explanation"
+      ],
+      "properties": {
+        "equation": {
+          "type": "string"
+        },
+        "what_binds": {
+          "type": "string"
+        },
+        "what_is_scarce": {
+          "type": "string"
+        },
+        "explanation": {
+          "type": "string"
+        }
       }
     },
-    "quality_card":{
-      "type":"array",
-      "items":{
-        "type":"object",
-        "additionalProperties":false,
-        "required":["attribute","score","reason","evidence_class"],
-        "properties":{
-          "attribute":{
-            "type":"string",
-            "enum":[
-              "Gross Margin","Normalized Profitability","Revenue Durability",
-              "Operating Leverage","Working-Capital Intensity","Capital Intensity",
-              "Demand Backdrop","Natural Expansion","Pricing Power","Transferability"
+    "quality_card": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "attribute",
+          "score",
+          "reason",
+          "evidence_class"
+        ],
+        "properties": {
+          "attribute": {
+            "type": "string",
+            "enum": [
+              "Gross Margin",
+              "Normalized Profitability",
+              "Revenue Durability",
+              "Operating Leverage",
+              "Working-Capital Intensity",
+              "Capital Intensity",
+              "Demand Backdrop",
+              "Natural Expansion",
+              "Pricing Power",
+              "Transferability"
             ]
           },
-          "score":{"type":"integer","minimum":1,"maximum":5},
-          "reason":{"type":"string"},
-          "evidence_class":{"type":"string","enum":["Observed","Inferred","Category Assumption","Must Verify"]}
+          "score": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "reason": {
+            "type": "string"
+          },
+          "evidence_class": {
+            "type": "string",
+            "enum": [
+              "Observed",
+              "Inferred",
+              "Category Assumption",
+              "Must Verify"
+            ]
+          },
+          "source_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          }
         }
       }
     },
-    "really_about":{"type":"string"},
-    "reconstructed_p_and_l":{
-      "type":"object",
-      "additionalProperties":false,
-      "required":["rows","evidence_coverage","reconstruction_confidence"],
-      "properties":{
-        "rows":{
-          "type":"array",
-          "items":{
-            "type":"object",
-            "additionalProperties":false,
-            "required":[
-              "line_item","as_listed","year_0","new_management_case",
-              "row_state","evidence_class","notes"
-            ],
-            "properties":{
-              "line_item":{"type":"string"},
-              "as_listed":{
-                "type":["object","null"],
-                "additionalProperties":false,
-                "required":["point","low","high"],
-                "properties":{
-                  "point":{"type":["number","null"]},
-                  "low":{"type":["number","null"]},
-                  "high":{"type":["number","null"]}
-                }
-              },
-              "year_0":{
-                "type":["object","null"],
-                "additionalProperties":false,
-                "required":["point","low","high"],
-                "properties":{
-                  "point":{"type":["number","null"]},
-                  "low":{"type":["number","null"]},
-                  "high":{"type":["number","null"]}
-                }
-              },
-              "new_management_case":{
-                "type":["object","null"],
-                "additionalProperties":false,
-                "required":["point","low","high"],
-                "properties":{
-                  "point":{"type":["number","null"]},
-                  "low":{"type":["number","null"]},
-                  "high":{"type":["number","null"]}
-                }
-              },
-              "row_state":{"type":"string","enum":["point_estimate","range","not_enough_evidence"]},
-              "evidence_class":{"type":"string","enum":["Observed","Inferred","Category Assumption","Must Verify"]},
-              "notes":{"type":"string"}
-            }
-          }
-        },
-        "evidence_coverage":{"type":"string"},
-        "reconstruction_confidence":{"type":"string","enum":["High","Medium","Low"]}
-      }
+    "really_about": {
+      "type": "string"
     },
-    "derived_metrics":{
-      "type":"object",
-      "additionalProperties":false,
-      "required":["earnings_keep_rate","owner_replacement_tax"],
-      "properties":{
-        "earnings_keep_rate":{"$ref":"#/$defs/metric"},
-        "owner_replacement_tax":{"$ref":"#/$defs/metric"}
-      }
-    },
-    "valuation":{
-      "type":"object",
-      "additionalProperties":false,
-      "required":[
-        "headline_multiple","headline_basis","market_grounding",
-        "implied_effective_multiple","effective_multiple_basis"
+    "reconstructed_p_and_l": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rows",
+        "evidence_coverage",
+        "reconstruction_confidence"
       ],
-      "properties":{
-        "headline_multiple":{"type":["number","null"]},
-        "headline_basis":{"type":["string","null"]},
-        "market_grounding":{"type":"string"},
-        "implied_effective_multiple":{
-          "type":"object",
-          "additionalProperties":false,
-          "required":["point","low","high"],
-          "properties":{
-            "point":{"type":["number","null"]},
-            "low":{"type":["number","null"]},
-            "high":{"type":["number","null"]}
-          }
-        },
-        "effective_multiple_basis":{"type":"string"}
-      }
-    },
-    "financing":{
-      "type":"object",
-      "additionalProperties":false,
-      "required":["base_case","sensitivities"],
-      "properties":{
-        "base_case":{
-          "type":"object",
-          "additionalProperties":false,
-          "required":["purchase_price","debt","seller_note","equity","annual_debt_service","year_0_cash_earnings","dscr","cash_to_equity"],
-          "properties":{
-            "purchase_price":{"type":["number","null"]},
-            "debt":{"type":["number","null"]},
-            "seller_note":{"type":["number","null"]},
-            "equity":{"type":["number","null"]},
-            "annual_debt_service":{"type":["number","null"]},
-            "year_0_cash_earnings":{"type":["number","null"]},
-            "dscr":{"type":["number","null"]},
-            "cash_to_equity":{"type":["number","null"]}
-          }
-        },
-        "sensitivities":{
-          "type":"array",
-          "items":{
-            "type":"object",
-            "additionalProperties":false,
-            "required":["price_case","earnings_case","purchase_price","year_0_cash_earnings","dscr","cash_to_equity"],
-            "properties":{
-              "price_case":{"type":"string","enum":["low","base","high"]},
-              "earnings_case":{"type":"string","enum":["downside","base","upside"]},
-              "purchase_price":{"type":["number","null"]},
-              "year_0_cash_earnings":{"type":["number","null"]},
-              "dscr":{"type":["number","null"]},
-              "cash_to_equity":{"type":["number","null"]}
-            }
-          }
-        }
-      }
-    },
-    "under_new_management":{
-      "type":"object",
-      "additionalProperties":false,
-      "required":["day_1","year_1_levers","year_3_destination","earnings_bridge"],
-      "properties":{
-        "day_1":{"type":"array","items":{"type":"string"}},
-        "year_1_levers":{
-          "type":"array",
-          "items":{
-            "type":"object",
-            "additionalProperties":false,
-            "required":[
-              "lever","mechanism","physics_variable","economic_impact","cost",
-              "timeline","confidence","first_90_day_action","what_has_to_be_true",
-              "why_uncaptured","differentiated"
+      "properties": {
+        "rows": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "line_item",
+              "as_listed",
+              "year_0",
+              "new_management_case",
+              "row_state",
+              "evidence_class",
+              "notes"
             ],
-            "properties":{
-              "lever":{"type":"string"},
-              "mechanism":{"type":"string"},
-              "physics_variable":{"type":"string"},
-              "economic_impact":{"type":"string"},
-              "cost":{"type":"string"},
-              "timeline":{"type":"string"},
-              "confidence":{"type":"string","enum":["High","Medium","Low"]},
-              "first_90_day_action":{"type":"string"},
-              "what_has_to_be_true":{"type":"string"},
-              "why_uncaptured":{"type":"string"},
-              "differentiated":{"type":"boolean"}
-            }
-          }
-        },
-        "year_3_destination":{"type":"string"},
-        "earnings_bridge":{
-          "type":"array",
-          "items":{
-            "type":"object",
-            "additionalProperties":false,
-            "required":["lever","base_value","delta_low","delta_high","resulting_value","notes"],
-            "properties":{
-              "lever":{"type":"string"},
-              "base_value":{"type":["number","null"]},
-              "delta_low":{"type":["number","null"]},
-              "delta_high":{"type":["number","null"]},
-              "resulting_value":{"type":["number","null"]},
-              "notes":{"type":"string"}
-            }
-          }
-        }
-      }
-    },
-    "bear_case":{
-      "type":"object",
-      "additionalProperties":false,
-      "required":["case","what_is_left_if_wrong","fragilities"],
-      "properties":{
-        "case":{"type":"string"},
-        "what_is_left_if_wrong":{"type":"string"},
-        "fragilities":{"type":"array","items":{"type":"string"}}
-      }
-    },
-    "what_has_to_be_true":{
-      "type":"object",
-      "additionalProperties":false,
-      "required":["deal_really_turns_on","swing_questions"],
-      "properties":{
-        "deal_really_turns_on":{"type":"array","items":{"type":"string"},"minItems":1,"maxItems":3},
-        "swing_questions":{
-          "type":"array",
-          "minItems":3,
-          "maxItems":7,
-          "items":{
-            "type":"object",
-            "additionalProperties":false,
-            "required":[
-              "question","why_it_matters","evidence_needed","encouraging_answer",
-              "concerning_answer","decision_impact"
-            ],
-            "properties":{
-              "question":{"type":"string"},
-              "why_it_matters":{"type":"string"},
-              "evidence_needed":{"type":"string"},
-              "encouraging_answer":{"type":"string"},
-              "concerning_answer":{"type":"string"},
-              "decision_impact":{
-                "type":"array",
-                "items":{
-                  "type":"string",
-                  "enum":["could_kill_deal","could_materially_reprice","could_materially_strengthen_thesis","refines_thesis"]
+            "properties": {
+              "line_item": {
+                "type": "string"
+              },
+              "as_listed": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "additionalProperties": false,
+                "required": [
+                  "point",
+                  "low",
+                  "high"
+                ],
+                "properties": {
+                  "point": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "low": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "high": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  }
+                }
+              },
+              "year_0": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "additionalProperties": false,
+                "required": [
+                  "point",
+                  "low",
+                  "high"
+                ],
+                "properties": {
+                  "point": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "low": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "high": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  }
+                }
+              },
+              "new_management_case": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "additionalProperties": false,
+                "required": [
+                  "point",
+                  "low",
+                  "high"
+                ],
+                "properties": {
+                  "point": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "low": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "high": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  }
+                }
+              },
+              "row_state": {
+                "type": "string",
+                "enum": [
+                  "point_estimate",
+                  "range",
+                  "not_enough_evidence"
+                ]
+              },
+              "evidence_class": {
+                "type": "string",
+                "enum": [
+                  "Observed",
+                  "Inferred",
+                  "Category Assumption",
+                  "Must Verify"
+                ]
+              },
+              "notes": {
+                "type": "string"
+              },
+              "source_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
                 },
-                "minItems":1
+                "uniqueItems": true
+              }
+            }
+          }
+        },
+        "evidence_coverage": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "observed_dollar_coverage_pct",
+            "note"
+          ],
+          "properties": {
+            "observed_dollar_coverage_pct": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 100,
+              "multipleOf": 5
+            },
+            "note": {
+              "type": "string"
+            }
+          }
+        },
+        "reconstruction_confidence": {
+          "type": "string",
+          "enum": [
+            "High",
+            "Medium",
+            "Low"
+          ]
+        }
+      }
+    },
+    "derived_metrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "earnings_keep_rate",
+        "owner_replacement_tax"
+      ],
+      "properties": {
+        "earnings_keep_rate": {
+          "$ref": "#/$defs/metric"
+        },
+        "owner_replacement_tax": {
+          "$ref": "#/$defs/metric"
+        }
+      }
+    },
+    "valuation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "headline_multiple",
+        "headline_basis",
+        "market_grounding",
+        "implied_effective_multiple",
+        "effective_multiple_basis"
+      ],
+      "properties": {
+        "headline_multiple": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "headline_basis": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "market_grounding": {
+          "type": "string"
+        },
+        "implied_effective_multiple": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "point",
+            "low",
+            "high"
+          ],
+          "properties": {
+            "point": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "low": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "high": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          }
+        },
+        "effective_multiple_basis": {
+          "type": "string"
+        },
+        "market_grounding_source_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "financing": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "base_case",
+        "sensitivities"
+      ],
+      "properties": {
+        "base_case": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "purchase_price",
+            "debt",
+            "seller_note",
+            "equity",
+            "annual_debt_service",
+            "year_0_cash_earnings",
+            "dscr",
+            "cash_to_equity"
+          ],
+          "properties": {
+            "purchase_price": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "debt": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "seller_note": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "equity": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "annual_debt_service": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "year_0_cash_earnings": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "dscr": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "cash_to_equity": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          }
+        },
+        "sensitivities": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "price_case",
+              "earnings_case",
+              "purchase_price",
+              "year_0_cash_earnings",
+              "dscr",
+              "cash_to_equity"
+            ],
+            "properties": {
+              "price_case": {
+                "type": "string",
+                "enum": [
+                  "asking_price",
+                  "year_0_value_low",
+                  "preliminary_maximum"
+                ]
+              },
+              "earnings_case": {
+                "type": "string",
+                "enum": [
+                  "downside",
+                  "base",
+                  "upside"
+                ]
+              },
+              "purchase_price": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "year_0_cash_earnings": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "dscr": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "cash_to_equity": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            }
+          },
+          "minItems": 9,
+          "maxItems": 9
+        }
+      }
+    },
+    "under_new_management": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "day_1",
+        "year_1_levers",
+        "year_3_destination",
+        "earnings_bridge"
+      ],
+      "properties": {
+        "day_1": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "year_1_levers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "lever",
+              "mechanism",
+              "physics_variable",
+              "economic_impact",
+              "cost",
+              "timeline",
+              "confidence",
+              "first_90_day_action",
+              "what_has_to_be_true",
+              "why_uncaptured",
+              "differentiated"
+            ],
+            "properties": {
+              "lever": {
+                "type": "string"
+              },
+              "mechanism": {
+                "type": "string"
+              },
+              "physics_variable": {
+                "type": "string"
+              },
+              "economic_impact": {
+                "type": "string"
+              },
+              "cost": {
+                "type": "string"
+              },
+              "timeline": {
+                "type": "string"
+              },
+              "confidence": {
+                "type": "string",
+                "enum": [
+                  "High",
+                  "Medium",
+                  "Low"
+                ]
+              },
+              "first_90_day_action": {
+                "type": "string"
+              },
+              "what_has_to_be_true": {
+                "type": "string"
+              },
+              "why_uncaptured": {
+                "type": "string"
+              },
+              "differentiated": {
+                "type": "boolean"
+              }
+            }
+          }
+        },
+        "year_3_destination": {
+          "type": "string"
+        },
+        "earnings_bridge": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "year_0_cash_earnings",
+            "levers",
+            "new_management_cash_earnings"
+          ],
+          "properties": {
+            "year_0_cash_earnings": {
+              "$ref": "#/$defs/value_range"
+            },
+            "levers": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "lever",
+                  "delta",
+                  "notes"
+                ],
+                "properties": {
+                  "lever": {
+                    "type": "string"
+                  },
+                  "delta": {
+                    "$ref": "#/$defs/value_range"
+                  },
+                  "notes": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "new_management_cash_earnings": {
+              "$ref": "#/$defs/value_range"
+            }
+          }
+        }
+      }
+    },
+    "bear_case": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "case",
+        "what_is_left_if_wrong",
+        "fragilities"
+      ],
+      "properties": {
+        "case": {
+          "type": "string"
+        },
+        "what_is_left_if_wrong": {
+          "type": "string"
+        },
+        "fragilities": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "what_has_to_be_true": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "deal_really_turns_on",
+        "swing_questions"
+      ],
+      "properties": {
+        "deal_really_turns_on": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "maxItems": 3
+        },
+        "swing_questions": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 7,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "question",
+              "why_it_matters",
+              "evidence_needed",
+              "encouraging_answer",
+              "concerning_answer",
+              "decision_impact"
+            ],
+            "properties": {
+              "question": {
+                "type": "string"
+              },
+              "why_it_matters": {
+                "type": "string"
+              },
+              "evidence_needed": {
+                "type": "string"
+              },
+              "encouraging_answer": {
+                "type": "string"
+              },
+              "concerning_answer": {
+                "type": "string"
+              },
+              "decision_impact": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "could_kill_deal",
+                    "could_materially_reprice",
+                    "could_materially_strengthen_thesis",
+                    "refines_thesis"
+                  ]
+                },
+                "minItems": 1
               }
             }
           }
         }
       }
     },
-    "ownership":{
-      "type":"object",
-      "additionalProperties":false,
-      "required":["required_advantage","transferability_view","feasible_structures"],
-      "properties":{
-        "required_advantage":{"type":"string"},
-        "transferability_view":{"type":"string"},
-        "feasible_structures":{"type":"array","items":{"type":"string"}}
+    "ownership": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "required_advantage",
+        "transferability_view",
+        "feasible_structures"
+      ],
+      "properties": {
+        "required_advantage": {
+          "type": "string"
+        },
+        "transferability_view": {
+          "type": "string"
+        },
+        "feasible_structures": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
       }
     },
-    "year_0_value_range":{
-      "type":"object",
-      "additionalProperties":false,
-      "required":["low","high","basis"],
-      "properties":{
-        "low":{"type":["number","null"]},
-        "high":{"type":["number","null"]},
-        "basis":{"type":"string"}
+    "year_0_value_range": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "low",
+        "high",
+        "basis"
+      ],
+      "properties": {
+        "low": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "high": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "basis": {
+          "type": "string"
+        }
       }
     },
-    "preliminary_maximum_price":{"type":["number","null"]},
-    "did_the_bet_survive":{"type":"string"}
+    "preliminary_maximum_price": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "did_the_bet_survive": {
+      "type": "string"
+    },
+    "narrative": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "our_view",
+        "business_explained",
+        "physics_explained",
+        "positive_case",
+        "under_new_management_narrative",
+        "bear_case_narrative",
+        "price_reasoning"
+      ],
+      "properties": {
+        "our_view": {
+          "type": "string"
+        },
+        "business_explained": {
+          "type": "string"
+        },
+        "physics_explained": {
+          "type": "string"
+        },
+        "positive_case": {
+          "type": "string"
+        },
+        "under_new_management_narrative": {
+          "type": "string"
+        },
+        "bear_case_narrative": {
+          "type": "string"
+        },
+        "price_reasoning": {
+          "type": "string"
+        }
+      }
+    }
   },
-  "$defs":{
-    "metric":{
-      "type":"object",
-      "additionalProperties":false,
-      "required":["status","point","low","high","basis","evidence_class"],
-      "properties":{
-        "status":{"type":"string","enum":["reported","not_applicable","suppressed"]},
-        "point":{"type":["number","null"]},
-        "low":{"type":["number","null"]},
-        "high":{"type":["number","null"]},
-        "basis":{"type":"string"},
-        "evidence_class":{"type":["string","null"],"enum":["Observed","Inferred","Category Assumption","Must Verify",null]}
+  "$defs": {
+    "metric": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "point",
+        "low",
+        "high",
+        "basis",
+        "evidence_class"
+      ],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "reported",
+            "not_applicable",
+            "suppressed"
+          ]
+        },
+        "point": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "low": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "high": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "basis": {
+          "type": "string"
+        },
+        "evidence_class": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "Observed",
+            "Inferred",
+            "Category Assumption",
+            "Must Verify",
+            null
+          ]
+        }
+      }
+    },
+    "value_range": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "point",
+        "low",
+        "high"
+      ],
+      "properties": {
+        "point": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "low": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "high": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
       }
     }
   }
