@@ -94,6 +94,8 @@ Confidential information never enters the publication path.
 
 If a deal is actively pursued, it is embargoed until the process ends.
 
+Generated visuals are editorial illustrations, not evidence. They must never imply that New Management observed the seller's actual facility, employees, equipment, vehicles, storefront, or other undisclosed company-specific details.
+
 ## The standard of excellence
 
 A strong New Management piece should leave a smart reader with three reactions:
