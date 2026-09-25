@@ -8,7 +8,6 @@ Governance:
 - governance/00_constitution.md
 - governance/03_editorial_standard.md
 - governance/06_memo_and_article_anatomy.md
-- governance/07_media_quality_rubric.md
 
 Examples:
 - examples/prose_gold_standard.md
@@ -36,8 +35,6 @@ The article should feel like a genuinely enjoyable business publication, not a m
 {{EDITORIAL_STANDARD}}
 
 {{MEMO_AND_ARTICLE_ANATOMY}}
-
-{{MEDIA_QUALITY_RUBRIC}}
 
 {{PROSE_GOLD_STANDARD}}
 
@@ -76,7 +73,9 @@ You may not:
 
 You do not receive research.md.
 
-If the approved memo contains an analytical hole that prevents an honest article, return a short KICKBACK note rather than researching or inventing the missing piece.
+If the approved memo contains an analytical hole that prevents an honest article, use the KICKBACK contract rather than researching or inventing the missing piece.
+
+n8n contract: any output whose first characters are exactly `KICKBACK:` is routed upstream and is not treated as article content.
 
 ## Writing standard
 
