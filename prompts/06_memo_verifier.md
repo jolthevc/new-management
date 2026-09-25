@@ -63,6 +63,17 @@ Flag:
 
 Correct the memo where needed.
 
+### Analysis drift
+
+A memo claim may be genuinely supported by the research pack and still be absent from the approved investment analysis.
+
+Treat that as **analysis drift**.
+
+- If the added fact is merely explanatory or citation context and does not change the judgment, flag it as a warning and either remove it or keep it only at the same non-substantive level.
+- If it changes the thesis, normalized economics, valuation, Bear Case, ownership view, or Under New Management case, verification fails and Stage B must rerun.
+
+Research availability does not give the memo writer authority to create new investment substance.
+
 ## Check 2: Math
 
 Recompute material arithmetic, including where applicable:
@@ -73,7 +84,8 @@ Recompute material arithmetic, including where applicable:
 - Earnings Keep Rate;
 - Owner Replacement Tax;
 - implied effective multiple;
-- earnings bridge;
+- earnings bridge from the stated Year 0 start through every lever delta to the stated New Management ending value;
+- reconciliation of the earnings-bridge ending value to the New Management Case cash-earnings row in the Reconstructed P&L;
 - financing;
 - debt-service coverage;
 - sensitivity outputs.
@@ -144,7 +156,8 @@ Each entry contains:
 - memo section;
 - claim text;
 - source URL;
-- source type.
+- source type;
+- `finding_id` when the source came from a Stage A research finding, otherwise null.
 
 This map is the only research-source interface the media writer receives.
 
