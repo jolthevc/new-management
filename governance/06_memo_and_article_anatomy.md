@@ -251,6 +251,8 @@ Readable, compact, explanatory.
 
 The financial backbone.
 
+The public exhibit retains the **evidence coverage** and **reconstruction confidence** line. Removing the internal scaffolding does not mean hiding how much of the reconstruction is observed versus assumed.
+
 ### Earnings bridge
 
 The value-creation bridge from Year 0 to the New Management Case.
