@@ -4,22 +4,50 @@
   "title": "New Management Memo Source Map",
   "type": "object",
   "additionalProperties": false,
-  "required":["claims"],
-  "properties":{
-    "claims":{
-      "type":"array",
-      "items":{
-        "type":"object",
-        "additionalProperties":false,
-        "required":["claim_id","memo_section","claim_text","source_url","source_type"],
-        "properties":{
-          "claim_id":{"type":"string"},
-          "memo_section":{"type":"string"},
-          "claim_text":{"type":"string"},
-          "source_url":{"type":"string","format":"uri"},
-          "source_type":{
-            "type":"string",
-            "enum":["listing","independent_public_source","category_assumption"]
+  "required": [
+    "claims"
+  ],
+  "properties": {
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "claim_id",
+          "memo_section",
+          "claim_text",
+          "source_url",
+          "source_type",
+          "finding_id"
+        ],
+        "properties": {
+          "claim_id": {
+            "type": "string"
+          },
+          "memo_section": {
+            "type": "string"
+          },
+          "claim_text": {
+            "type": "string"
+          },
+          "source_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "source_type": {
+            "type": "string",
+            "enum": [
+              "listing",
+              "independent_public_source",
+              "category_assumption"
+            ]
+          },
+          "finding_id": {
+            "type": [
+              "string",
+              "null"
+            ]
           }
         }
       }
