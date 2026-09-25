@@ -50,6 +50,7 @@ In roughly 150 to 250 words, tell James:
 - the headline economics;
 - what may be interesting;
 - what immediately gives us pause;
+- any notable transaction terms that materially change attention, such as seller financing, SBA prequalification, transition support, or included real estate;
 - the likely analytical angle;
 - why this listing may or may not deserve attention.
 
@@ -67,6 +68,18 @@ Where available, show:
 The multiple may be calculated deterministically from supplied listing facts.
 
 Do not calculate any other investment metrics.
+
+## Notable terms
+
+Populate `notable_terms` only with explicitly stated terms that could materially affect why James looks at the deal, especially:
+
+- seller financing;
+- SBA prequalification;
+- unusual transition support;
+- included or separately offered real estate;
+- other unusual transaction structure.
+
+Do not turn ordinary boilerplate into a notable term.
 
 ## Writing standard
 
