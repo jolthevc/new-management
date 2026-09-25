@@ -41,6 +41,12 @@ Do not browse the web.
 
 Do not independently re-underwrite the deal.
 
+Stage B is the seat of judgment. Its `narrative` fields contain canonical publication-quality analytical prose. Reuse strong passages with little or no rewriting when they already work. Your job is primarily to arrange, connect, pace, and clarify the approved thinking, not to reconstruct it from terse JSON fields.
+
+The full research pack is available for citation and source context only. Use research findings that are referenced by, or substantively represented in, the approved investment analysis. Do not introduce a new research fact simply because it is available in the pack.
+
+If a useful research fact was never weighed by Stage B and would change the thesis, economics, valuation, value creation, or Bear Case, surface the gap rather than adding it yourself.
+
 If the supplied analysis contains a material contradiction or a hole that prevents honest writing, surface it clearly rather than filling it yourself.
 
 ## Core standard
