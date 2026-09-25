@@ -62,6 +62,12 @@ Do not reopen the conceptual framework unless a live fixture demonstrates an act
 - decorative rather than useful image briefs;
 - score inflation.
 
+### Cost and runtime
+- token-heavy stages that are not improving quality;
+- research loops that spend heavily on low-value questions;
+- unexpectedly expensive verification or rewriting;
+- latency concentrated in a stage that can be simplified without weakening output.
+
 ## Exit criterion
 
 Fixtures 4 and 5 should pass without prompt changes after fixture 3.
