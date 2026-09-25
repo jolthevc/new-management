@@ -94,3 +94,12 @@ If a failure appears:
 The five live fixtures are the calibration mechanism.
 
 Further architecture changes should come from an observed fixture failure, not more theoretical design.
+
+
+## Runtime sentinel
+
+The media writer has one plain-text control contract for n8n:
+
+- if output begins exactly with `KICKBACK:`, n8n routes the item upstream for analytical repair and does not treat the output as article content.
+
+This remains intentionally simpler than adding another schema solely for one exceptional branch.
